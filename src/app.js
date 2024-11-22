@@ -1,22 +1,23 @@
-var displayScreen = document.getElementById("result");
-var numberButtons = document.querySelectorAll(".dark");
-var addButton = document.getElementById("Add");
-var subtractButton = document.getElementById("Subtract");
-var multiplyButton = document.getElementById("Multiply");
-var divideButton = document.getElementById("Divide");
-var equalsButton = document.getElementById("Equals");
-var resetButton = document.querySelector(".gray");
-var currentInput = "";
-var firstOperand = "";
-var secondOperand = "";
-var currentOperation = null;
+"use strict";
+const displayScreen = document.getElementById("result");
+const numberButtons = document.querySelectorAll(".dark");
+const addButton = document.getElementById("Add");
+const subtractButton = document.getElementById("Subtract");
+const multiplyButton = document.getElementById("Multiply");
+const divideButton = document.getElementById("Divide");
+const equalsButton = document.getElementById("Equals");
+const resetButton = document.querySelector(".gray");
+let currentInput = "";
+let firstOperand = "";
+let secondOperand = "";
+let currentOperation = null;
 function updateScreen(value) {
     displayScreen.textContent = value;
 }
 // Update display when number buttons are clicked
-numberButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        var value = button.textContent;
+numberButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const value = button.textContent;
         if (value === ".") {
             // Prevent multiple decimal points
             if (currentInput.includes("."))
@@ -33,20 +34,20 @@ function handleOperation(operation) {
         firstOperand = currentInput;
         currentOperation = operation;
         currentInput = "";
-        updateScreen("".concat(firstOperand, " ").concat(operation));
+        updateScreen(`${firstOperand} ${operation}`);
     }
 }
-addButton.addEventListener("click", function () { return handleOperation("+"); });
-subtractButton.addEventListener("click", function () { return handleOperation("-"); });
-multiplyButton.addEventListener("click", function () { return handleOperation("×"); });
-divideButton.addEventListener("click", function () { return handleOperation("÷"); });
-equalsButton.addEventListener("click", function () {
+addButton.addEventListener("click", () => handleOperation("+"));
+subtractButton.addEventListener("click", () => handleOperation("-"));
+multiplyButton.addEventListener("click", () => handleOperation("×"));
+divideButton.addEventListener("click", () => handleOperation("÷"));
+equalsButton.addEventListener("click", () => {
     if (!firstOperand || !currentOperation || currentInput === "")
         return;
     secondOperand = currentInput;
-    var num1 = parseFloat(firstOperand);
-    var num2 = parseFloat(secondOperand);
-    var result;
+    const num1 = parseFloat(firstOperand);
+    const num2 = parseFloat(secondOperand);
+    let result;
     switch (currentOperation) {
         case "+":
             result = num1 + num2;
@@ -73,7 +74,7 @@ equalsButton.addEventListener("click", function () {
     currentInput = "";
     currentOperation = "";
 });
-resetButton.addEventListener("click", function () {
+resetButton.addEventListener("click", () => {
     currentInput = "";
     firstOperand = "";
     secondOperand = "";
