@@ -1,0 +1,106 @@
+/* Base styles for small screens (mobile-first) */
+body {
+    font-family: Arial, sans-serif;
+    background: #000000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+
+.calculator {
+    width: 100%; 
+    max-width: 390px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    margin-top: 120px;
+    position: relative;
+
+}
+
+.screen {
+    color: white;
+    width: 100%;
+    height: 80px;
+    text-align: right;
+    padding: 40px;
+    font-size: 12vw;
+    font-family: 'Digital-7 Mono', monospace;
+}
+
+.buttons {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 22vw; /* Button width based on viewport width */
+    height: 22vw; /* Height proportional to width for round buttons */
+    font-size: 10vw; /* Font size based on viewport width */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button.dark {
+    background: #333;
+    color: #fff;
+}
+
+button.orange {
+    background: #ff9500;
+    color: #fff;
+}
+
+
+button#reset {
+    background: #ff3b30; 
+    color: white;
+    font-size: 16px;
+    width: 100%; 
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-top: 32px;
+}
+
+button#reset:hover {
+    background: #ff6a5c; /* Lighter red on hover */
+}
+
+button#reset:active {
+    transform: scale(0.95);
+}
+
+
