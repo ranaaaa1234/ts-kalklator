@@ -1,100 +1,120 @@
-/* Base styles for small screens (mobile-first) */
+/* Grundinställningar */
 body {
-    font-family: Arial, sans-serif;
-    background: #000000;
-    margin: 0;
-    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #171717;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    height: 100vh;
+    margin: 0;
 }
 
-
 .calculator {
-    width: 100%; 
-    max-width: 390px;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #222;
+    width: 320px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     padding: 15px;
-    margin-top: 120px;
+    border: 1px solid rgb(142, 142, 142);
+
 }
 
 .screen {
-    color: white;
-    width: 100%;
-    height: 80px;
+    background-color: #000;
+    color: #0f0; /* Grön text för skärmen */
+    font-size: 2.5rem;
     text-align: right;
-    padding: 40px;
-    font-size: 12vw;
-    font-family: 'Digital-7 Mono', monospace;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .buttons {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Mellanrum mellan rader */
 }
 
 .row {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    gap: 10px; /* Mellanrum mellan knappar */
 }
 
 button {
-    width: 22vw; /* Button width based on viewport width */
-    height: 22vw; /* Height proportional to width for round buttons */
-    font-size: 10vw; /* Font size based on viewport width */
+    flex: 1; /* Gör knapparna jämnstora */
+    height: 60px;
     border: none;
-    border-radius: 50%;
+    border-radius: 10px;
+    font-size: 1.5rem;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+    transition: all 0.3s ease;
 }
 
-button:hover {
-    opacity: 0.7;
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
+/* Standardknapp */
 button.dark {
-    background: #333;
-    color: #fff;
-}
-
-button.orange {
-    background: #ff9500;
-    color: #fff;
-}
-
-
-button#reset {
-    background: #ff3b30; 
+    background-color: #444;
     color: white;
-    font-size: 16px;
-    width: 100%; 
-    height: 40px;
-    border-radius: 50px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    margin-top: 32px;
 }
 
-button#reset:hover {
-    background: #ff6a5c; /* Lighter red on hover */
+button.dark:hover {
+    background-color: #666;
 }
 
-button#reset:active {
-    transform: scale(0.95);
+/* Specialknappar */
+button.orange {
+    background-color: #f90; /* Orange färg */
+    color: white;
 }
 
+button.orange:hover {
+    background-color: #ffb84d;
+}
 
+button.gray {
+    background-color: #ccc; /* Ljusgrå */
+    color: black;
+}
+
+button.gray:hover {
+    background-color: #ddd;
+}
+
+/* Siffran 0-knappen */
+button.zero {
+    flex: 2; /* Gör den dubbelt så bred */
+}
+
+/* Responsiv design */
+@media screen and (max-width: 400px) {
+    .calculator {
+        width: 90%; /* Anpassa bredd för mindre skärmar */
+    }
+
+    button {
+        font-size: 1.2rem;
+        height: 50px;
+    }
+
+    .screen {
+        font-size: 2rem;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .calculator {
+        width: 90%; /* Anpassa bredd för mindre skärmar */
+        height: 67%;
+    }
+
+    button {
+        font-size: 2rem;
+        height: 78px;
+    }
+
+    .screen {
+        font-size: 2.5rem;
+        padding: 40px;
+    }
+}
